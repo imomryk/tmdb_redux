@@ -30,6 +30,7 @@ export const MovieCard = ({
         <div className="info_block__overview">{overview}</div>
         <div className="info_block__releaseDate">{release_date}</div>
         {genres ? (
+          //reduce
           genres
             .filter((genre) => genre_ids.includes(genre.id))
             .map((genre) => {

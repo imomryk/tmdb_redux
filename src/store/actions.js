@@ -24,9 +24,9 @@ export const setDetails = (result)=>({type:SET_DETAILS, payload:result})
 
 export const getGenres =()=>{
     return async (dispatch)=>{
-        const response = axios.get(`${baseUrl}/genre/movie/list?api_key=${apiKey}`)
-        console.log((await response).data.genres)
-        dispatch(setGenres((await response).data))
+        const {data} = await axios.get(`${baseUrl}/genre/movie/list?api_key=${apiKey}`)
+        console.log(data.genres)
+        dispatch(setGenres(data))
     }
 }
 
