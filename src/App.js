@@ -1,42 +1,28 @@
-import { useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux"
-import { getMovies } from "./store/actions"
-import { SET_QUERY } from "./store/types"
-
-
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DetailsPage from "./components/DetailsPage";
+import SearchPage from "./components/SearchPage";
+import { WatchlistPage } from "./components/WatchlistPage/WatchlistPage";
+import { getGenres } from "./store/actions";
 
 function App() {
-  const query = useSelector((state) => state.query)
-  const movies = useSelector((state) => state.movies)
-
+  console.log(localStorage)
   const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getGenres())
+  })
 
-  const handleRequest = (event) => {
-    dispatch({ type: SET_QUERY, payload: document.getElementById("queryField").value })
-    event.preventDefault()
-  }
-
-
-  useEffect(() => {
-    dispatch(getMovies(query))
-  }, [query, dispatch])
-
-
-  return (
+  return ( 
     <>
-      <form onSubmit={handleRequest}>
-        <input type="text" id="queryField" />
-        <button>search</button>
-      </form>
-      {movies.map(({ title }) => {
-        return (
-          <h2>{title}</h2>
-        )
-      })}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<SearchPage />} />
+          <Route path="/details/:id" element={<DetailsPage/>}/>
+          <Route path="/watchlist" element={<WatchlistPage/>}/>
+        </Routes>
+      </BrowserRouter>
     </>
-
-
   );
 }
 
