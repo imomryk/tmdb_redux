@@ -22,7 +22,7 @@ export const DetailsCard = () => {
       </div>
       <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" />
       <div className="detailsCard_infoBlock">
-        {tagline && <h4>{tagline}</h4>}
+        {!!tagline && <h4>{tagline}</h4>}
         <table>
           <tbody>
             <tr>
