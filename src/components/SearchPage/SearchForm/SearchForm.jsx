@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovies } from "../../store/actions";
-import { SET_QUERY } from "../../store/types";
+import { getMovies } from "../../../store/actions";
+import { SET_QUERY } from "../../../store/types";
 
 
 export const SearchForm = () => {

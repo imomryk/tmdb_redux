@@ -5,7 +5,7 @@ export const Header=()=>{
       <header>
         <nav>
           <Link to={'/'}>Search</Link>
-          <Link to={'/watchlist'}>Watchlist</Link>
+          <Link to={'/favorites'}>Favorites</Link>
         </nav>
       </header>
     );

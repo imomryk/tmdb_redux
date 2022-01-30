@@ -1,6 +1,7 @@
 import styles from "./MovieCard.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import FavoritesButton from "../../FavoritesButton";
 
 export const MovieCard = ({
   genre_ids,
@@ -12,7 +13,6 @@ export const MovieCard = ({
   vote_average,
 }) => {
   const genres = useSelector((state) => state.genres);
-
   return (
     <div className={styles.movie_card}>
       <img
@@ -43,7 +43,7 @@ export const MovieCard = ({
           <button>Details</button>
         </Link>
 
-        <button >Add to watchlist</button>
+        <FavoritesButton id={id} title={title}/>
       </div>
     </div>
   );
