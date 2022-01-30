@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import MovieCard from "../MovieCard";
+import MovieCard from "./MovieCard";
 import styles from './MoviesContainer.module.css'
 
 export const MoviesContainer = () => {

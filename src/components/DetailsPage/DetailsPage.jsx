@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { getDetails } from "../../store/actions"
-import DetailsCard from "../DetailsCard"
+import DetailsCard from "./DetailsCard"
 import Header from "../Header"
 
 
